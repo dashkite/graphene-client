@@ -1,8 +1,12 @@
-# Graphene Lambda Client
+# Graphene Client
+
+Defines the abstract interface for the Graphene client. To use the client, you must install a specific implementation, such as the Web client.
 
 ```coffeescript
-# create the client by providing the Lambda you want to target
-client = Graphene.Client.create "graphene-beta-development-api"
+import * as Graphene from "@dashkite/graphene-web-client"
+
+# create the Web client
+client = Graphene.Client.create base: "https://graphene.dashkite.io"
 
 # create a new database
 # the database will have a unique address
