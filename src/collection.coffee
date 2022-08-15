@@ -38,6 +38,13 @@ class Collection
         content: { name, collection }
         method: "post"
 
+  @list: ( parent ) ->
+    @invoke parent,
+      resource: 
+        name: "collections"
+        bindings: { db: parent.db }
+      method: "get"
+
   @get: ( parent, collection ) ->
     @wrap parent, await do =>
       try

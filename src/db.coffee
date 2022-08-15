@@ -15,7 +15,7 @@ class DB
 
   Meta.mixin @::, [
 
-    proxy "collections", Collection, [ "create", "get", "getStatus" ]
+    proxy "collections", Collection, [ "create", "get", "getStatus", "list" ]
 
     timestamps
 
