@@ -9,6 +9,7 @@ import {
 
 import { Entry } from "./entry"
 import { Metadata } from "./metadata"
+import { Index } from "./indices"
 
 class Collection
 
@@ -18,8 +19,15 @@ class Collection
 
   Meta.mixin @::, [
 
-    proxy "entries", Entry, [ "get", "put", "delete", "list", "query" ]
-    proxy "metadata", Metadata, [ "get", "put", "delete", "list", "query" ]
+    proxy "indices", Index,
+      [ "create", "getStatus", "get", "delete", "list" ]
+    proxy "entries", Entry, [
+      "get", "put", "delete", 
+      "list", "query", "queryAll", 
+      "increment", "decrement" 
+    ]
+    proxy "metadata", Metadata,
+      [ "get", "put", "delete", "list", "query", "queryAll" ]
     timestamps
 
     Meta.getters
@@ -69,5 +77,12 @@ class Collection
           bindings: { @db, @collection }
         content: { name }          
         method: "put"
+
+  delete: ->
+    @invoke
+      resource: 
+        name: "collection"
+        bindings: { @db, @collection }
+      method: "delete"
 
 export { Collection }

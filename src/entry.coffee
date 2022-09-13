@@ -23,33 +23,44 @@ class Entry
   ]
 
   @get: (parent, entry ) ->
-    try
-      @invoke parent,
-        resource: 
-          name: "entry"
-          bindings: { db: parent.db, collection: parent.collection, entry }
-        method: "get"
-
-  @put: ( parent, entry, content ) ->
+    { db, collection } = parent
     @invoke parent,
       resource: 
         name: "entry"
-        bindings: { db: parent.db, collection: parent.collection, entry }
+        bindings: { db, collection, entry  }
+      method: "get"
+
+  @put: ( parent, entry, content ) ->
+    { db, collection } = parent
+    @invoke parent,
+      resource: 
+        name: "entry"
+        bindings: { db, collection, entry  }
       content: content
       method: "put"
 
   @list: ( parent ) ->
+    { db, collection } = parent
     @invoke parent,
       resource:
         name: "entry list"
-        bindings: { db: parent.db, collection: parent.collection }
+        bindings: { db, collection  }
       method: "get"
 
   @query: ( parent, query ) ->
+    { db, collection } = parent
     @invoke parent,
       resource: 
-        name: "query"
-        bindings: { db: parent.db, collection: parent.collection, query  }
+        name: "entry query"
+        bindings: { db, collection, query  }
+      method: "get"
+
+  @queryAll: ( parent, query ) ->
+    { db, collection } = parent
+    @invoke parent,
+      resource: 
+        name: "entry query all"
+        bindings: { db, collection, query  }
       method: "get"
 
   @delete: ( parent, entry ) ->
@@ -59,6 +70,26 @@ class Entry
         name: "entry"
         bindings: { db, collection, entry }
       method: "delete"
+
+  @increment: ( parent, entry, property ) ->
+    { db, collection } = parent
+    { content } = await @invoke parent,
+      resource:
+        name: "atomic update"
+        bindings: { db, collection, entry, property: "views", expression: "+1" }
+      method: "post"
+    # TODO maybe this is what the API should return?
+    content[ property ]
+
+  @decrement: ( parent, entry, property ) ->
+    { db, collection } = parent
+    { content } = await @invoke parent,
+      resource:
+        name: "atomic update"
+        bindings: { db, collection, entry, property: "views", expression: "-1" }
+      method: "post"
+    # TODO maybe this is what the API should return?
+    content[ property ]
 
 class Entries
   @fromConfiguration: ( client, configuration ) ->

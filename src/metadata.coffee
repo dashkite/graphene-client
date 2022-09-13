@@ -36,38 +36,50 @@ class Metadata
       content: -> @_.content
   ]
 
-  @get: (parent, entry ) ->
-    @wrap parent, await do =>
-      try
-        @invoke parent,
-          resource: 
-            name: "metadata"
-            bindings: { db: parent.db, collection: parent.collection, entry }
-          method: "get"
-
-  @put: ( parent, entry, content ) ->
-    @wrap parent, await do =>
-      @invoke parent,
+  @get: ( parent, entry ) ->
+    { db, collection } = parent
+    @wrap parent,
+      await @invoke parent,
         resource: 
           name: "metadata"
-          bindings: { db: parent.db, collection: parent.collection, entry }
+          bindings: { db, collection, entry }
+        method: "get"
+
+  @put: ( parent, entry, content ) ->
+    { db, collection } = parent
+    @wrap parent,
+      await @invoke parent,
+        resource: 
+          name: "metadata"
+          bindings: { db, collection, entry }
         content: content
         method: "put"
 
   @list: ( parent ) ->
-    @wrap parent, await do =>
-      @invoke parent,
+    { db, collection } = parent
+    @wrap parent,
+      await @invoke parent,
         resource:
           name: "metadata list"
-          bindings: { db: parent.db, collection: parent.collection }
+          bindings: { db, collection }
         method: "get"
 
   @query: ( parent, query ) ->
-    @wrap parent, await do =>
-      @invoke parent,
+    { db, collection } = parent
+    @wrap parent,
+      await @invoke parent,
         resource: 
           name: "metadata query"
-          bindings: { db: parent.db, collection: parent.collection, query  }
+          bindings: { db, collection, query  }
+        method: "get"
+
+  @queryAll: ( parent, query ) ->
+    { db, collection } = parent
+    @wrap parent,
+      await @invoke parent,
+        resource: 
+          name: "metadata query all"
+          bindings: { db, collection, query  }
         method: "get"
 
   @delete: ( parent, entry ) ->

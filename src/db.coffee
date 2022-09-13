@@ -51,4 +51,11 @@ class DB
         content: { name }       
         method: "put"
 
+  delete: ->
+    @invoke
+      resource: 
+        name: "db"
+        bindings: { @db }
+      method: "delete"
+
 export { DB }
