@@ -25,20 +25,19 @@
   "homepage": "https://github.com/dashkite/graphene-lambda-client#readme",
   "devDependencies": {
     "@dashkite/amen": "^0.1.2",
-    "@dashkite/amen-console": "file:../amen-console",
+    "@dashkite/amen-console": "link:../amen-console",
     "@dashkite/assert": "^0.1.4",
+    "@dashkite/dolores": "link:../dolores",
     "@dashkite/genie": "^0.5.6",
-    "@dashkite/genie-presets": "file:../genie-presets",
-    "@dashkite/polaris": "file:../polaris",
-    "@dashkite/runes": "file:../runes",
+    "@dashkite/genie-presets": "link:../genie-presets",
+    "@dashkite/polaris": "link:../polaris",
+    "@dashkite/runes": "link:../runes",
     "fake-indexeddb": "^4.0.0"
   },
   "dependencies": {
     "@dashkite/bake": "^0.0.6",
-    "@dashkite/dolores": "file:../dolores",
-    "@dashkite/graphite-core": "file:../graphite-core",
     "@dashkite/joy": "^0.3.16",
-    "@dashkite/vega-client": "file:../vega-client",
+    "@dashkite/vega-client": "link:../vega-client",
     "node-fetch": "^2.6.7",
     "source-map-support": "^0.5.21"
   }
