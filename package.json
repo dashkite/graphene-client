@@ -31,7 +31,6 @@
     "@dashkite/dolores": "link:../dolores",
     "@dashkite/genie": "link:../genie",
     "@dashkite/genie-modules": "link:../genie-modules",
-    "@dashkite/genie-presets": "link:../genie-presets",
     "@dashkite/polaris": "link:../polaris",
     "@dashkite/runes": "link:../runes",
     "fake-indexeddb": "^4.0.0"
