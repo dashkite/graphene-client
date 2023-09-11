@@ -1,4 +1,3 @@
-import "source-map-support/register"
 import { test as _test, success } from "@dashkite/amen"
 import { print, debug } from "@dashkite/amen-console"
 import assert from "@dashkite/assert"

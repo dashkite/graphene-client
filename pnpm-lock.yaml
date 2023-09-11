@@ -16,7 +16,7 @@ dependencies:
     version: link:../vega-client
   node-fetch:
     specifier: ^2.6.7
-    version: 2.6.8
+    version: 2.7.0
   source-map-support:
     specifier: ^0.5.21
     version: 0.5.21
@@ -37,9 +37,12 @@ devDependencies:
   '@dashkite/genie':
     specifier: link:../genie
     version: link:../genie
-  '@dashkite/genie-modules':
-    specifier: link:../genie-modules
-    version: link:../genie-modules
+  '@dashkite/genie-coffee':
+    specifier: link:../genie-coffee
+    version: link:../genie-coffee
+  '@dashkite/genie-yaml':
+    specifier: link:../genie-yaml
+    version: link:../genie-yaml
   '@dashkite/polaris':
     specifier: link:../polaris
     version: link:../polaris
@@ -48,7 +51,7 @@ devDependencies:
     version: link:../runes
   fake-indexeddb:
     specifier: ^4.0.0
-    version: 4.0.1
+    version: 4.0.2
 
 packages:
 
@@ -96,8 +99,8 @@ packages:
       webidl-conversions: 4.0.2
     dev: true
 
-  /fake-indexeddb@4.0.1:
-    resolution: {integrity: sha512-hFRyPmvEZILYgdcLBxVdHLik4Tj3gDTu/g7s9ZDOiU3sTNiGx+vEu1ri/AMsFJUZ/1sdRbAVrEcKndh3sViBcA==}
+  /fake-indexeddb@4.0.2:
+    resolution: {integrity: sha512-SdTwEhnakbgazc7W3WUXOJfGmhH0YfG4d+dRPOFoYDRTL6U5t8tvrmkf2W/C3W1jk2ylV7Wrnj44RASqpX/lEw==}
     dependencies:
       realistic-structured-clone: 3.0.0
     dev: true
@@ -106,8 +109,8 @@ packages:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: true
 
-  /node-fetch@2.6.8:
-    resolution: {integrity: sha512-RZ6dBYuj8dRSfxpUSu+NsdF1dpPpluJxwOp+6IoDp/sH2QNDSvurYsAa+F1WxY2RjA1iP93xhcsUoYbF2XBqVg==}
+  /node-fetch@2.7.0:
+    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
       encoding: ^0.1.0
