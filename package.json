@@ -29,7 +29,7 @@
     "@dashkite/amen-console": "link:../amen-console",
     "@dashkite/assert": "^0.1.4",
     "@dashkite/dolores": "link:../dolores",
-    "@dashkite/genie": "link:../genie",
+    "@dashkite/genie": "^0.7.3",
     "@dashkite/genie-coffee": "link:../genie-coffee",
     "@dashkite/genie-yaml": "link:../genie-yaml",
     "@dashkite/polaris": "link:../polaris",
