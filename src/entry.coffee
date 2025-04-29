@@ -78,7 +78,6 @@ class Entry
         name: "atomic update"
         bindings: { db, collection, entry, property: "views", expression: "+1" }
       method: "post"
-    # TODO maybe this is what the API should return?
     content[ property ]
 
   @decrement: ( parent, entry, property ) ->
@@ -88,7 +87,6 @@ class Entry
         name: "atomic update"
         bindings: { db, collection, entry, property: "views", expression: "-1" }
       method: "post"
-    # TODO maybe this is what the API should return?
     content[ property ]
 
 class Entries
