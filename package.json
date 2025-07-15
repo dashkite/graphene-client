@@ -42,7 +42,7 @@
   "dependencies": {
     "@dashkite/bake": "^0.0.6",
     "@dashkite/joy": "^0.7.0",
-    "@dashkite/vega-client": "link:../vega-client",
+    "@dashkite/vega-client": "0.1.0",
     "node-fetch": "^2.6.7",
     "source-map-support": "^0.5.21"
   },
