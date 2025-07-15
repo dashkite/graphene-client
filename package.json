@@ -36,7 +36,7 @@
     "@dashkite/genie-release": "^0.2.10",
     "@dashkite/genie-yaml": "0.7.0",
     "@dashkite/polaris": "0.6.0",
-    "@dashkite/runes": "link:../runes",
+    "@dashkite/runes": "0.2.0",
     "fake-indexeddb": "^4.0.0"
   },
   "dependencies": {
