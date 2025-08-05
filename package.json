@@ -1,6 +1,6 @@
 {
   "name": "@dashkite/graphene-client",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "Graphene Generic Client",
   "exports": {
     ".": {
