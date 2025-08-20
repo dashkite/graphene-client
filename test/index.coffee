@@ -43,7 +43,7 @@ do ({ email, db, collection, response, content } = {}) ->
     await test "Database", await do ->
       [
 
-        await test "Create", wait: false, ->
+        await test "Create",  ->
 
           db = await client.db.create name: "My Database"
 
@@ -57,7 +57,7 @@ do ({ email, db, collection, response, content } = {}) ->
             db: db.address
 
 
-        await test "Get", wait: false, ->
+        await test "Get",  ->
 
           await Time.sleep 2000
           db = await client.db.get db.address
@@ -68,7 +68,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert db.updated?
           assert.equal db.name, "My Database"
 
-        await test "Put", wait: false, ->
+        await test "Put",  ->
 
           db = await db.put name: "My Updated Database" 
 
@@ -98,7 +98,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert collection.updated?
           assert.equal collection.name, "Favorite Films"
 
-        await test "Status (not ready)", wait: false, ->
+        await test "Status (not ready)",  ->
         
           await Time.sleep 2000
 
@@ -109,13 +109,13 @@ do ({ email, db, collection, response, content } = {}) ->
           assert response.status == "not ready" ||
             response.status == "ready"
 
-        await test "Status (ready)", wait: false, ->
+        await test "Status (ready)",  ->
 
           while response.status != "ready"
             await Time.sleep 1000
             response = await collection.getStatus()
 
-        await test "Get", wait: false, ->
+        await test "Get",  ->
 
           collection = await db.collections.get collection.byname
           # console.log "get collection", collection
@@ -145,7 +145,7 @@ do ({ email, db, collection, response, content } = {}) ->
 
       [
 
-        await test "Empty List (with metadata)", wait: false, ->
+        await test "Empty List (with metadata)",  ->
 
           list = await collection.metadata.list()
 
@@ -155,7 +155,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert content.length?
           assert.equal 0, content.length
 
-        await test "Create", wait: false, ->
+        await test "Create",  ->
 
           content = await collection.entries.put "star-wars",
             title: "Star Wars"
@@ -167,7 +167,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert content.year?
           assert.equal content.year, "1977"
 
-        await test "Get", wait: false, ->
+        await test "Get",  ->
 
           await Time.sleep 2000
 
@@ -179,7 +179,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert content.year?
           assert.equal content.year, "1977"
 
-        await test "Put", wait: false, ->
+        await test "Put",  ->
 
           content = await collection.entries.put "star-wars",
             { content..., director: "George Lucas" }
@@ -192,7 +192,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert content.director?
           assert.equal content.director, "George Lucas"
 
-        await test "List", wait: false, ->
+        await test "List",  ->
 
           content = await collection.entries.list()
         
@@ -201,7 +201,7 @@ do ({ email, db, collection, response, content } = {}) ->
           assert.equal 1, content.length
           assert.equal "Star Wars", content[0].title
 
-        await test "List (with metadata)", wait: false, ->
+        await test "List (with metadata)",  ->
 
           list = await collection.metadata.list()
 
@@ -218,7 +218,7 @@ do ({ email, db, collection, response, content } = {}) ->
 
         test "Decrement"
         
-        await test "Query", wait: false, ->
+        await test "Query",  ->
 
           await Time.sleep 2000
 
@@ -229,7 +229,7 @@ do ({ email, db, collection, response, content } = {}) ->
 
         test "Query All"
 
-        await test "Delete", wait: false, ->
+        await test "Delete",  ->
           collection.entries.delete "star-wars"
 
 
